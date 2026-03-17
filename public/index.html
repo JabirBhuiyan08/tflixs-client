@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2d6a4f" />
+
+    <!-- Default SEO – overridden per-page by react-helmet-async -->
+    <title>Tflixs – Free NPK Fertilizer Calculator for Farmers</title>
+    <meta name="description" content="Free online fertilizer calculator for farmers. Get accurate NPK recommendations for rice, wheat, vegetables and more crops. No registration required." />
+    <meta name="keywords"    content="fertilizer calculator, NPK calculator, crop nutrition, Tflixs, soil nutrient, farming tool" />
+
+    <!-- Open Graph defaults -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="Tflixs" />
+    <meta property="og:title"       content="Tflixs – Free NPK Fertilizer Calculator" />
+    <meta property="og:description" content="Get accurate NPK fertilizer recommendations for any crop. Free, no login required." />
+    <meta property="og:image"       content="https://tflixs.com/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Tflixs – Free NPK Fertilizer Calculator" />
+    <meta name="twitter:description" content="Get accurate NPK fertilizer recommendations for any crop." />
+
+    <!-- Structured Data: WebSite + SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Tflixs",
+      "url": "https://tflixs.com",
+      "description": "Free fertilizer calculator for farmers – accurate NPK recommendations for any crop",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://tflixs.com/blog?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Tflixs Fertilizer Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online fertilizer calculator providing NPK recommendations for 18+ crops"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Google Analytics — Tflixs (G-M2ENGZ03JL) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2ENGZ03JL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M2ENGZ03JL', {
+        page_path: window.location.pathname,
+        anonymize_ip: true
+      });
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

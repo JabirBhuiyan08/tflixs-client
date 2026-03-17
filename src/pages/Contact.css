@@ -1,0 +1,24 @@
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contact-info h2 { font-size: 1.8rem; margin-bottom: 16px; }
+
+.info-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--green-faint);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.info-card__icon { font-size: 1.8rem; }
+.info-card strong { display: block; font-size: 0.9rem; font-weight: 600; }
+.info-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0 0; }
+
+.contact-faq h3 { font-size: 1.1rem; margin-bottom: 16px; }
+.faq-item { padding: 12px 0; border-bottom: 1px solid var(--border-light); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item strong { font-size: 0.88rem; color: var(--text-primary); display: block; margin-bottom: 4px; }
+.faq-item p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+@media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
