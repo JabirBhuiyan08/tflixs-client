@@ -1,9 +1,12 @@
+// src/pages/Home.js (updated)
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/layout/SEOHead';
 import AdSlot from '../components/layout/AdSlot';
 import WeatherWidget from '../components/layout/WeatherWidget';
 import { useLocale } from '../context/LocaleContext';
+import logo from '../assets/TFlixs.png';
 import './Home.css';
 
 const features = [
@@ -39,6 +42,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero__bg-pattern" />
         <div className="container hero__content">
+          <img src={logo} alt="Tflixs Logo" className="hero__logo" />
           <div className="hero__badge"><span>🌱</span> {t('freeForFarmers')}</div>
           <h1 className="hero__title">
             {t('heroTitle')}<br />
@@ -157,6 +161,14 @@ const Home = () => {
                 <h3>Pest & Disease Guide</h3>
                 <p>Identify and treat common crop problems with expert advice.</p>
                 <span className="tool-card__link">Explore →</span>
+              </div>
+            </Link>
+            <Link to="/seed-calculator" className="tool-card card">
+              <div className="card-body">
+                <div className="tool-card__icon">🌾</div>
+                <h3>Seed Rate Calculator</h3>
+                <p>Calculate exact seed requirements based on area, plant population, and seed characteristics.</p>
+                <span className="tool-card__link">Calculate →</span>
               </div>
             </Link>
             <Link to="/calculator" className="tool-card card">

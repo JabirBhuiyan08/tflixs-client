@@ -11,7 +11,7 @@ import { LocaleProvider }  from './context/LocaleContext';
 
 import Header           from './components/layout/Header';
 import Footer           from './components/layout/Footer';
-import AIChatWidget     from './components/layout/AIChatWidget';
+// import AIChatWidget     from './components/layout/AIChatWidget';
 import NewsletterSignup from './components/layout/NewsletterSignup';
 import ScrollToTop      from './components/layout/ScrollToTop';
 import GATracker        from './components/layout/GATracker';
@@ -26,6 +26,9 @@ import NotFound     from './pages/NotFound';
 import CropCalendar from './pages/CropCalendar';
 import PestGuide    from './pages/PestGuide';
 import Unsubscribe  from './pages/Unsubscribe';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import SeedCalculator from './pages/SeedCalculator';
 
 import AdminLogin      from './pages/admin/AdminLogin';
 import AdminDashboard  from './pages/admin/AdminDashboard';
@@ -46,9 +49,10 @@ const PublicLayout = ({ children, showNewsletter = false }) => (
     <main className="main-content">{children}</main>
     {showNewsletter && <NewsletterSignup />}
     <Footer />
-    <AIChatWidget />
+    {/* <AIChatWidget /> */}
   </>
 );
+
 
 function App() {
   return (
@@ -87,6 +91,9 @@ function App() {
                 <Route path="/unsubscribe" element={<PublicLayout><Unsubscribe /></PublicLayout>} />
                 <Route path="/contact"     element={<PublicLayout><Contact /></PublicLayout>} />
                 <Route path="/about"       element={<PublicLayout><About /></PublicLayout>} />
+                <Route path="/privacy-policy" element={<PublicLayout><PrivacyPolicy /></PublicLayout>} />
+                <Route path="/terms-of-service" element={<PublicLayout><TermsOfService /></PublicLayout>} />
+                <Route path="/seed-calculator" element={<PublicLayout><SeedCalculator /></PublicLayout>} />
                 <Route path="*"           element={<PublicLayout><NotFound /></PublicLayout>} />
               </Routes>
             </Router>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLocale } from '../../context/LocaleContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import logo from '../../assets/TFlixs.png';
 import './Header.css';
 
 const Header = () => {
@@ -22,20 +23,19 @@ const Header = () => {
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__inner">
         <Link to="/" className="header__logo">
-          <span className="header__logo-icon">🌿</span>
-          <span>
-            <span className="header__logo-main">T</span>
-            <span className="header__logo-accent">flixs</span>
-          </span>
+          <img src={logo} alt="Tflixs Logo" className="header__logo-img" />
         </Link>
 
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>{t('home')}</NavLink>
           <NavLink to="/calculator" className={({ isActive }) => isActive ? 'active' : ''}>{t('calculator')}</NavLink>
+          <NavLink to="/seed-calculator" className={({ isActive }) => isActive ? 'active' : ''}>Seeds</NavLink>
           <NavLink to="/calendar"   className={({ isActive }) => isActive ? 'active' : ''}>Calendar</NavLink>
           <NavLink to="/pest-guide" className={({ isActive }) => isActive ? 'active' : ''}>Pest Guide</NavLink>
           <NavLink to="/blog"       className={({ isActive }) => isActive ? 'active' : ''}>{t('blog')}</NavLink>
           <NavLink to="/contact"    className={({ isActive }) => isActive ? 'active' : ''}>{t('contact')}</NavLink>
+          <NavLink to="/privacy-policy" className={({ isActive }) => isActive ? 'active' : ''}>Privacy</NavLink>
+          <NavLink to="/terms-of-service" className={({ isActive }) => isActive ? 'active' : ''}>Terms</NavLink>
           <Link to="/calculator" className="btn btn-primary btn-sm header__cta">
             {t('tryCalculator')}
           </Link>

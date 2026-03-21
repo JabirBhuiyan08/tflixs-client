@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../context/LocaleContext';
+import logo from '../../assets/TFlixs.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -13,8 +14,7 @@ const Footer = () => {
         <div className="container footer__grid">
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <span>🌿</span>
-              <span>Tflixs</span>
+              <img src={logo} alt="Tflixs Logo" className="footer__logo-img" />
             </Link>
             <p>{t('footerTagline')}</p>
             <div className="footer__badges">

@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../context/AuthContext';
 
 const AdminSettings = () => {
   const { admin, changePassword } = useAuth();
-  const [pwForm, setPwForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
   const [saving, setSaving] = useState(false);
   const [showCurrent, setShowCurrent] = useState(false);
-  const [showNew, setShowNew]         = useState(false);
+  const [showNew, setShowNew] = useState(false);
 
-  const handleChange = e => setPwForm({ ...pwForm, [e.target.name]: e.target.value });
+  // Refs for uncontrolled inputs – allows browser autofill
+  const currentRef = useRef(null);
+  const newRef = useRef(null);
+  const confirmRef = useRef(null);
 
   const handlePasswordChange = async e => {
     e.preventDefault();
-    if (pwForm.newPassword !== pwForm.confirmPassword) {
+
+    const current = currentRef.current.value;
+    const newPw = newRef.current.value;
+    const confirm = confirmRef.current.value;
+
+    if (newPw !== confirm) {
       toast.error('New passwords do not match!');
       return;
     }
-    if (pwForm.newPassword.length < 8) {
+    if (newPw.length < 8) {
       toast.error('Password must be at least 8 characters.');
       return;
     }
+
     setSaving(true);
     try {
-      // Uses Firebase re-authentication + updatePassword
-      await changePassword(pwForm.currentPassword, pwForm.newPassword);
+      await changePassword(current, newPw);
       toast.success('Password updated successfully via Firebase!');
-      setPwForm({ currentPassword: '', newPassword: '', confirmPassword: '' });
+
+      // Clear fields after success
+      currentRef.current.value = '';
+      newRef.current.value = '';
+      confirmRef.current.value = '';
     } catch (err) {
       const code = err?.code || '';
       if (code === 'auth/wrong-password' || code === 'auth/invalid-credential') {
@@ -41,7 +52,8 @@ const AdminSettings = () => {
     }
   };
 
-  const PassInput = ({ id, name, placeholder, show, onToggle }) => (
+  // Reusable password input component (uncontrolled)
+  const PassInput = ({ id, name, placeholder, show, onToggle, refProp, autoComplete }) => (
     <div style={{ position: 'relative' }}>
       <input
         id={id}
@@ -49,9 +61,9 @@ const AdminSettings = () => {
         name={name}
         className="form-control"
         placeholder={placeholder}
-        value={pwForm[name]}
-        onChange={handleChange}
-        required
+        ref={refProp}
+        autoComplete={autoComplete}
+        defaultValue=""  // initial empty, but browser autofill can populate
         style={{ paddingRight: 44 }}
       />
       <button
@@ -126,6 +138,8 @@ const AdminSettings = () => {
                   placeholder="Enter current password"
                   show={showCurrent}
                   onToggle={() => setShowCurrent(v => !v)}
+                  refProp={currentRef}
+                  autoComplete="current-password"
                 />
               </div>
               <div className="form-group">
@@ -136,19 +150,21 @@ const AdminSettings = () => {
                   placeholder="At least 8 characters"
                   show={showNew}
                   onToggle={() => setShowNew(v => !v)}
+                  refProp={newRef}
+                  autoComplete="new-password"
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="confirmPassword">Confirm New Password</label>
                 <input
                   id="confirmPassword"
-                  type="password"
+                  type={showNew ? 'text' : 'password'}  // match visibility with new password field
                   name="confirmPassword"
                   className="form-control"
                   placeholder="Repeat new password"
-                  value={pwForm.confirmPassword}
-                  onChange={handleChange}
-                  required
+                  ref={confirmRef}
+                  autoComplete="new-password"
+                  defaultValue=""
                 />
               </div>
               <button type="submit" className="btn btn-primary" disabled={saving}>

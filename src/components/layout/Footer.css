@@ -18,6 +18,10 @@
   text-decoration: none;
   margin-bottom: 16px;
 }
+.footer__logo-img {
+  max-height: 40px;
+  width: auto;
+}
 .footer__brand p {
   font-size: 0.9rem;
   line-height: 1.7;

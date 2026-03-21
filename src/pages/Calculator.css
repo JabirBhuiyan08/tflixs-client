@@ -8,7 +8,16 @@
   padding-bottom: 48px;
   align-items: start;
 }
-
+.crop-btn.selected {
+  border-color: var(--green-primary);
+  background: var(--green-pale);
+  box-shadow: 0 2px 8px rgba(45, 106, 79, 0.2);
+}
+.crop-btn.selected {
+  border-color: #2d6a4f;
+  background: #e9f5ef;
+  box-shadow: 0 2px 8px rgba(45, 106, 79, 0.2);
+}
 /* Progress */
 .calc-progress {
   display: flex;
@@ -66,30 +75,104 @@
 .calc-progress__step.active span { color: var(--green-primary); font-weight: 600; }
 
 /* Crop Grid */
+/* ── Crop Grid – base (desktop) ───────────────────────────── */
 .crop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* slightly smaller min */
+  gap: 8px;
 }
+
 .crop-btn {
+  aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 16px 8px;
+  justify-content: center;
+  padding: 8px 4px;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   background: var(--white);
   cursor: pointer;
   transition: all var(--transition);
   text-align: center;
+  width: 100%;
 }
-.crop-btn:hover { border-color: var(--green-light); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-.crop-btn.selected { border-color: var(--green-primary); background: var(--green-faint); }
-.crop-btn__icon { font-size: 2rem; }
-.crop-btn__name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
-.crop-btn__season { font-size: 0.72rem; color: var(--text-muted); }
 
+.crop-btn__icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.crop-btn__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.crop-btn__season {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+/* ── Tablet (max 768px) ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .crop-grid {
+    grid-template-columns: repeat(4, 1fr) !important; /* 4 columns */
+    gap: 6px !important;
+  }
+  .crop-btn {
+    padding: 6px 2px;
+  }
+  .crop-btn__icon {
+    font-size: 1.4rem !important;
+  }
+  .crop-btn__name {
+    font-size: 0.6rem !important;
+  }
+  .crop-btn__season {
+    display: none !important;
+  }
+}
+
+/* ── Small phones (max 480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  .crop-grid {
+    grid-template-columns: repeat(5, 1fr) !important; /* 5 columns – even smaller boxes */
+    gap: 4px !important;
+  }
+  .crop-btn {
+    padding: 4px 1px;
+  }
+  .crop-btn__icon {
+    font-size: 1.2rem !important;
+  }
+  .crop-btn__name {
+    font-size: 0.5rem !important;
+    -webkit-line-clamp: 2; /* keep two lines */
+  }
+}
+
+/* ── Very small (max 360px) ───────────────────────────────── */
+@media (max-width: 360px) {
+  .crop-grid {
+    grid-template-columns: repeat(5, 1fr) !important; /* still 5 columns */
+    gap: 3px !important;
+  }
+  .crop-btn__icon {
+    font-size: 1.1rem !important;
+  }
+  .crop-btn__name {
+    font-size: 0.45rem !important;
+    -webkit-line-clamp: 2;
+  }
+}
 /* Selected crop badge */
 .selected-crop-badge {
   display: inline-flex;

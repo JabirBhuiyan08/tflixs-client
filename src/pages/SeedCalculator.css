@@ -1,0 +1,205 @@
+/* Add to SeedCalculator.css */
+
+.field-description {
+  font-size: 0.7rem;
+  color: #6c757d;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.tooltip-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #e9ecef;
+  color: #495057;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 16px;
+  margin-left: 5px;
+  cursor: help;
+  position: relative;
+}
+
+.tooltip-icon:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.mode-tab {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.mode-tab:hover {
+  color: #27ae60;
+}
+
+.mode-tab.active {
+  color: #27ae60;
+  border-bottom-color: #27ae60;
+}
+
+.input-group.full-width {
+  grid-column: 1 / -1;
+}
+.seed-calculator {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.seed-calculator h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.input-group input,
+.input-group select {
+  padding: 0.6rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.unit-hint {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 0.2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2ecc71;
+}
+
+.btn-secondary {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #7f8c8d;
+}
+
+.result-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  border-left: 6px solid #27ae60;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-note {
+  margin-top: 1rem;
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}

@@ -24,6 +24,10 @@
   text-decoration: none;
   flex-shrink: 0;
 }
+.header__logo-img {
+  max-height: 40px;
+  width: auto;
+}
 .header__logo-icon { font-size: 1.6rem; }
 .header__logo-main {
   font-family: var(--font-display);
